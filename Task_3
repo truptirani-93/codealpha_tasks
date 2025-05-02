@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class AIChatbot {
+
+    // Simulated NLP responses based on keyword matching
+    private static String getResponse(String input) {
+        input = input.toLowerCase();
+
+        if (input.contains("hello") || input.contains("hi")) {
+            return "Hello! How can I assist you today?";
+        } else if (input.contains("how are you")) {
+            return "I'm a bot, but I'm doing great! Thanks for asking.";
+        } else if (input.contains("name")) {
+            return "I’m ChatBot Java Edition. What's your name?";
+        } else if (input.contains("weather")) {
+            return "I can't fetch real-time weather, but I hope it's sunny where you are!";
+        } else if (input.contains("bye")) {
+            return "Goodbye! Have a great day!";
+        } else if (input.contains("help")) {
+            return "You can ask me about my name, weather, or just chat casually!";
+        } else {
+            return "I'm not sure how to respond to that. Can you rephrase?";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("🤖 ChatBot: Hello! I'm your AI Chatbot. Type 'bye' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            String userInput = scanner.nextLine();
+
+            if (userInput.trim().equalsIgnoreCase("bye")) {
+                System.out.println("🤖 ChatBot: Goodbye!");
+                break;
+            }
+
+            String response = getResponse(userInput);
+            System.out.println("🤖 ChatBot: " + response);
+        }
+
+        scanner.close();
+    }
+}
